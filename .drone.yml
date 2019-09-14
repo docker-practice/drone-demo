@@ -1,6 +1,7 @@
 kind: pipeline
 type: docker
 name: build
+
 steps:
 - name: build
   image: golang:alpine
@@ -13,6 +14,8 @@ steps:
     - ls
     - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
     - ./app
+
+---
 
 trigger:
   branch:
